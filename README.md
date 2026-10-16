@@ -21,7 +21,7 @@ The test lints are a tool, not a library:
 
 ```bash
 go get -tool github.com/JorisJonkers-dev/go-commons/cmd/testlint@vX.Y.Z
-go tool testlint ./...                    # and -tags integration ./... for integration tests
+go tool testlint ./...                    # and -tags integration ./... for tests behind that tag
 ```
 
 ## Work on it
