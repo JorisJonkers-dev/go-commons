@@ -11,14 +11,14 @@ import (
 func built(t *testing.T) string {
 	t.Helper()
 	bin := filepath.Join(t.TempDir(), "testlint")
-	if out, err := exec.Command("go", "build", "-o", bin, ".").CombinedOutput(); err != nil { //nolint:gosec // the test builds into its own temp dir
+	if out, err := exec.CommandContext(t.Context(), "go", "build", "-o", bin, ".").CombinedOutput(); err != nil { //nolint:gosec // the test builds into its own temp dir
 		t.Fatalf("build: %v\n%s", err, out)
 	}
 	return bin
 }
 
 func TestTheTagsFlagLintsTheTestsBehindThoseTags(t *testing.T) {
-	cmd := exec.Command(built(t), "-tags", "integration", "./...") //nolint:gosec // the command the test built
+	cmd := exec.CommandContext(t.Context(), built(t), "-tags", "integration", "./...") //nolint:gosec // the command the test built
 	cmd.Dir = "testdata/tagged"
 	out, _ := cmd.CombinedOutput()
 	if !strings.Contains(string(out), "test name TestTagged names no behaviour") {
@@ -27,7 +27,7 @@ func TestTheTagsFlagLintsTheTestsBehindThoseTags(t *testing.T) {
 }
 
 func TestWithoutTheTagsFlagTaggedTestsAreLeftOut(t *testing.T) {
-	cmd := exec.Command(built(t), "./...") //nolint:gosec // the command the test built
+	cmd := exec.CommandContext(t.Context(), built(t), "./...") //nolint:gosec // the command the test built
 	cmd.Dir = "testdata/tagged"
 	if out, err := cmd.CombinedOutput(); err != nil || len(out) != 0 {
 		t.Fatalf("testlint = %v:\n%s", err, out)
