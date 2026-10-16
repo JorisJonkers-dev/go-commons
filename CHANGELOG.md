@@ -1,5 +1,12 @@
 # Changelog
 
+## [0.2.1](https://github.com/JorisJonkers-dev/go-commons/compare/v0.2.0...v0.2.1) (2026-10-16)
+
+
+### Bug Fixes
+
+* testlint analyses modules built with Go 1.27 ([#9](https://github.com/JorisJonkers-dev/go-commons/issues/9)) ([d1f366f](https://github.com/JorisJonkers-dev/go-commons/commit/d1f366f0313873b7c5acfdadfebae3397c2272f8))
+
 ## [0.2.0](https://github.com/JorisJonkers-dev/go-commons/compare/v0.1.0...v0.2.0) (2026-10-16)
 
 
