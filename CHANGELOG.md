@@ -1,5 +1,12 @@
 # Changelog
 
+## [0.2.2](https://github.com/JorisJonkers-dev/go-commons/compare/v0.2.1...v0.2.2) (2026-10-16)
+
+
+### Bug Fixes
+
+* testlint -tags lints the tests behind those tags ([#11](https://github.com/JorisJonkers-dev/go-commons/issues/11)) ([265052c](https://github.com/JorisJonkers-dev/go-commons/commit/265052c8fcaebad9af52ce76a5844d0e2f1ac669))
+
 ## [0.2.1](https://github.com/JorisJonkers-dev/go-commons/compare/v0.2.0...v0.2.1) (2026-10-16)
 
 
