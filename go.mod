@@ -2,7 +2,11 @@ module github.com/JorisJonkers-dev/go-commons
 
 go 1.26.4
 
-require golang.org/x/tools v0.52.0
+require (
+	github.com/JorisJonkers-dev/identity/contract/principal v0.0.0-20261020161717-f53d748b6fd0
+	github.com/go-jose/go-jose/v4 v4.1.6
+	golang.org/x/tools v0.52.0
+)
 
 require (
 	golang.org/x/mod v0.42.0 // indirect

@@ -6,6 +6,7 @@ this one (JorisJonkers-dev/go-commons#1). Nothing here is speculative.
 
 | Package | What | Consumers |
 |---------|------|-----------|
+| [`identity`](identity) | who is calling, from identity's Principal contract: the Gate's signed header verified against the Issuer's keys, and the policy helpers `RequireRole`, `RefuseTools`, `RequireUser`, `RequireMachine` and `RequireRecentTwoFactor` | identity (JorisJonkers-dev/identity#109) |
 | [`secure`](secure) | the browser hardening headers: the three every service sends the same, and the content security policy, permissions policy and HSTS each service sets | estate-dashboard |
 | [`testlint`](testlint) | lints for the estate testing standards: a test named as a sentence, and a table of functions that runs each case as a named `t.Run`; run as `go tool testlint ./...` | identity |
 
