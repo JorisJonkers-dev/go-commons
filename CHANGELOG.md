@@ -1,5 +1,13 @@
 # Changelog
 
+## [0.3.0](https://github.com/JorisJonkers-dev/go-commons/compare/v0.2.2...v0.3.0) (2026-10-20)
+
+
+### Features
+
+* the identity package reads access tokens and introspects opaque ones ([#17](https://github.com/JorisJonkers-dev/go-commons/issues/17)) ([75fb059](https://github.com/JorisJonkers-dev/go-commons/commit/75fb059a0c172d727a0e0887555795e9fc92da31))
+* the identity package reads the Gate's signed Principal ([#16](https://github.com/JorisJonkers-dev/go-commons/issues/16)) ([11d6c3b](https://github.com/JorisJonkers-dev/go-commons/commit/11d6c3b21a319ed6c22e3e909b6a99353938bdc2))
+
 ## [0.2.2](https://github.com/JorisJonkers-dev/go-commons/compare/v0.2.1...v0.2.2) (2026-10-16)
 
 
