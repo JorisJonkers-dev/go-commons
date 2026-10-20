@@ -24,6 +24,9 @@ const (
 	Type = "identity-principal+jwt"
 	// Major is the contract major version this package reads.
 	Major = "1"
+	// accessTokenType is a JWT access token's typ: zitadel/oidc signs access and ID tokens alike as
+	// JWT, and an access token alone names a client_id.
+	accessTokenType = "JWT"
 	// refetchAfter is how soon an unknown key id may fetch the Issuer's keys again.
 	refetchAfter = time.Minute
 )
@@ -48,6 +51,12 @@ type Config struct {
 	ClientID string
 	// KeysURL is where the Issuer publishes its keys; Issuer + "/oidc/keys" when empty.
 	KeysURL string
+	// ClientSecret is the app's Client secret, which it introspects opaque tokens with. An app
+	// without one refuses an opaque token as inactive.
+	ClientSecret string
+	// IntrospectURL is where the Issuer answers about opaque tokens; Issuer + "/oidc/introspect"
+	// when empty.
+	IntrospectURL string
 	// HTTPClient fetches the keys; http.DefaultClient when nil.
 	HTTPClient *http.Client
 	// Now is the clock a Principal's expiry is read against; time.Now when nil.
@@ -61,6 +70,9 @@ type Reader struct {
 	mu      sync.Mutex
 	keys    jose.JSONWebKeySet
 	fetched time.Time
+
+	answersMu sync.Mutex
+	answers   map[string]answer
 }
 
 // New returns a Reader for cfg.
@@ -71,16 +83,21 @@ func New(cfg Config) (*Reader, error) {
 	if cfg.KeysURL == "" {
 		cfg.KeysURL = strings.TrimSuffix(cfg.Issuer, "/") + "/oidc/keys"
 	}
+	if cfg.IntrospectURL == "" {
+		cfg.IntrospectURL = strings.TrimSuffix(cfg.Issuer, "/") + "/oidc/introspect"
+	}
 	if cfg.HTTPClient == nil {
 		cfg.HTTPClient = http.DefaultClient
 	}
 	if cfg.Now == nil {
 		cfg.Now = time.Now
 	}
-	return &Reader{cfg: cfg}, nil
+	return &Reader{cfg: cfg, answers: map[string]answer{}}, nil
 }
 
 type claims struct {
+	Active   *bool    `json:"active"`
+	ClientID string   `json:"client_id"`
 	Issuer   string   `json:"iss"`
 	Subject  string   `json:"sub"`
 	Audience audience `json:"aud"`
@@ -115,33 +132,61 @@ func (a *audience) UnmarshalJSON(b []byte) error {
 	return err
 }
 
-// Read is the Principal a request carries, or a *RefusalError saying why it carries none. Any other
-// error means the Issuer's keys could not be read.
+// Read is the Principal a request carries, or a *RefusalError saying why it carries none: the
+// Gate's signed header when there is one, or else its bearer token, a JWT access token verified
+// here or an opaque token introspected. Any other error means identity could not be asked.
 func (r *Reader) Read(req *http.Request) (Principal, error) {
-	token := req.Header.Get(Header)
-	if token == "" {
-		return Principal{}, &RefusalError{"missing"}
+	if signed := req.Header.Get(Header); signed != "" {
+		c, err := r.verified(req.Context(), signed, Type)
+		if err != nil {
+			return Principal{}, err
+		}
+		return r.checked(c)
 	}
+	scheme, token, ok := strings.Cut(req.Header.Get("Authorization"), " ")
+	switch {
+	case !ok || !strings.EqualFold(scheme, "Bearer") || token == "":
+		return Principal{}, &RefusalError{"missing"}
+	case strings.Count(token, ".") == 2:
+		c, err := r.verified(req.Context(), token, accessTokenType)
+		if err != nil {
+			return Principal{}, err
+		}
+		if c.ClientID == "" {
+			return Principal{}, &RefusalError{"not-an-access-token"}
+		}
+		return r.checked(c)
+	}
+	return r.introspected(req.Context(), token)
+}
+
+// verified is the claims of a JWT of typ, signed by one of the Issuer's published keys.
+func (r *Reader) verified(ctx context.Context, token, typ string) (claims, error) {
 	jws, err := jose.ParseSigned(token, []jose.SignatureAlgorithm{jose.RS256})
 	if err != nil {
-		return Principal{}, &RefusalError{"bad-signature"}
+		return claims{}, &RefusalError{"bad-signature"}
 	}
 	h := jws.Signatures[0].Protected
-	if h.ExtraHeaders[jose.HeaderType] != Type {
-		return Principal{}, &RefusalError{"wrong-typ"}
+	if h.ExtraHeaders[jose.HeaderType] != typ {
+		return claims{}, &RefusalError{"wrong-typ"}
 	}
-	key, err := r.key(req.Context(), h.KeyID)
+	key, err := r.key(ctx, h.KeyID)
 	if err != nil {
-		return Principal{}, err
+		return claims{}, err
 	}
 	payload, err := jws.Verify(key)
 	if err != nil {
-		return Principal{}, &RefusalError{"bad-signature"}
+		return claims{}, &RefusalError{"bad-signature"}
 	}
 	var c claims
 	if err := json.Unmarshal(payload, &c); err != nil {
-		return Principal{}, &RefusalError{"bad-signature"}
+		return claims{}, &RefusalError{"bad-signature"}
 	}
+	return c, nil
+}
+
+// checked is c's Principal, or why c states none for this Reader.
+func (r *Reader) checked(c claims) (Principal, error) {
 	if refusal := r.refusal(c); refusal != "" {
 		return Principal{}, &RefusalError{refusal}
 	}
