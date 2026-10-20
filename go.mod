@@ -3,7 +3,7 @@ module github.com/JorisJonkers-dev/go-commons
 go 1.27.3
 
 require (
-	github.com/JorisJonkers-dev/identity/contract/principal v0.0.0-20261020190440-117db4adf4e4
+	github.com/JorisJonkers-dev/identity/contract/principal v1.1.0
 	github.com/go-jose/go-jose/v4 v4.1.6
 	golang.org/x/tools v0.52.0
 )

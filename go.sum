@@ -1,5 +1,5 @@
-github.com/JorisJonkers-dev/identity/contract/principal v0.0.0-20261020190440-117db4adf4e4 h1:iY9qAUl2ry1i8eogNGVtWBT3xOT2TvWmKrF46A3IWzo=
-github.com/JorisJonkers-dev/identity/contract/principal v0.0.0-20261020190440-117db4adf4e4/go.mod h1:0SHKF5qroPPzolx/PtbnY+/Ywwwmi7rmxZKcWTzg5w0=
+github.com/JorisJonkers-dev/identity/contract/principal v1.1.0 h1:WImBKi5pNWe7tjF9oRE+cG0a1hq6EJNUwLexqYL8JbA=
+github.com/JorisJonkers-dev/identity/contract/principal v1.1.0/go.mod h1:9BzevImetOmvIzA6qWZCQe2SY/8Mp4qIdg5lu91oM4g=
 github.com/go-jose/go-jose/v4 v4.1.6 h1:sNRkftxFJxwsILiQukqp5z83QBSmntVwmgRY7AqBDO4=
 github.com/go-jose/go-jose/v4 v4.1.6/go.mod h1:x4oUasVrzR7071A4TnHLGSPpNOm2a21K9Kf04k1rs08=
 github.com/google/go-cmp v0.6.0 h1:ofyhxvXcZhMsU5ulbFiLKl/XBFqE1GSq7atu8tAmTRI=
