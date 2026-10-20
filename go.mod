@@ -1,9 +1,9 @@
 module github.com/JorisJonkers-dev/go-commons
 
-go 1.26.4
+go 1.27.3
 
 require (
-	github.com/JorisJonkers-dev/identity/contract/principal v0.0.0-20261020161717-f53d748b6fd0
+	github.com/JorisJonkers-dev/identity/contract/principal v1.0.0
 	github.com/go-jose/go-jose/v4 v4.1.6
 	golang.org/x/tools v0.52.0
 )
