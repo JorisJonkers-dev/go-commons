@@ -4,8 +4,8 @@ github.com/AdaLogics/go-fuzz-headers v0.0.0-20240806141605-e8a1dd7889d6 h1:He8af
 github.com/AdaLogics/go-fuzz-headers v0.0.0-20240806141605-e8a1dd7889d6/go.mod h1:8o94RPi1/7XTJvwPpRSzSUedZrtlirdB3r9Z20bi2f8=
 github.com/Azure/go-ansiterm v0.0.0-20250102033503-faa5f7b0171c h1:udKWzYgxTojEKWjV8V+WSxDXJ4NFATAsZjh8iIbsQIg=
 github.com/Azure/go-ansiterm v0.0.0-20250102033503-faa5f7b0171c/go.mod h1:xomTg63KZ2rFqZQzSB4Vz2SUXa1BpHTVz9L5PTmPC4E=
-github.com/JorisJonkers-dev/identity/contract/flows v0.0.0-20261021061207-bf8eaa4efd3a h1:8UaYQjxbeKPV5lS72RvStSgdomNxT4G3kcnSPlTy4Wg=
-github.com/JorisJonkers-dev/identity/contract/flows v0.0.0-20261021061207-bf8eaa4efd3a/go.mod h1:gy4u1Pn7JEOiKZZQGuCnWI6hZOc9DTg2TxKWsfR3E0c=
+github.com/JorisJonkers-dev/identity/contract/flows v0.0.0-20261021064741-42668eb083dc h1:7NYEzCHOILzE4GmJbBmNN30FwTMDBM+xujYFeMa9PO0=
+github.com/JorisJonkers-dev/identity/contract/flows v0.0.0-20261021064741-42668eb083dc/go.mod h1:gy4u1Pn7JEOiKZZQGuCnWI6hZOc9DTg2TxKWsfR3E0c=
 github.com/JorisJonkers-dev/identity/contract/principal v1.1.1 h1:k6oU/Y+f1GSc1xDhKESxpD2dqjXSVT8/SN3f/9h1p1E=
 github.com/JorisJonkers-dev/identity/contract/principal v1.1.1/go.mod h1:0SHKF5qroPPzolx/PtbnY+/Ywwwmi7rmxZKcWTzg5w0=
 github.com/Microsoft/go-winio v0.6.2 h1:F2VQgta7ecxGYO8k3ZZz3RS8fVIXVxONVUPlNERoyfY=

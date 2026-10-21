@@ -3,7 +3,7 @@ module github.com/JorisJonkers-dev/go-commons
 go 1.26.4
 
 require (
-	github.com/JorisJonkers-dev/identity/contract/flows v0.0.0-20261021061207-bf8eaa4efd3a
+	github.com/JorisJonkers-dev/identity/contract/flows v0.0.0-20261021064741-42668eb083dc
 	github.com/JorisJonkers-dev/identity/contract/principal v1.1.1
 	github.com/coreos/go-oidc/v3 v3.21.0
 	github.com/go-jose/go-jose/v4 v4.1.6
