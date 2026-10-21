@@ -1,5 +1,12 @@
 # Changelog
 
+## [0.4.0](https://github.com/JorisJonkers-dev/go-commons/compare/v0.3.1...v0.4.0) (2026-10-21)
+
+
+### Features
+
+* the Go sign-in kit, held to identity's flow-conformance suite ([#23](https://github.com/JorisJonkers-dev/go-commons/issues/23)) ([5479661](https://github.com/JorisJonkers-dev/go-commons/commit/547966144a3305231525b2ab9b60571bf46e406f))
+
 ## [0.3.1](https://github.com/JorisJonkers-dev/go-commons/compare/v0.3.0...v0.3.1) (2026-10-21)
 
 
