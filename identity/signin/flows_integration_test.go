@@ -18,7 +18,7 @@ import (
 // TestTheKitPassesThePrincipalContractsFlowSuite runs the flow suite against a minimal app on the
 // kit: README.md's routes in contract/flows, and nothing else.
 func TestTheKitPassesThePrincipalContractsFlowSuite(t *testing.T) {
-	flows.Run(t, flows.ImagesFromEnv(), func(t *testing.T, env flows.Env) {
+	flows.Run(t, identityImages(), func(t *testing.T, env flows.Env) {
 		kit, err := signin.New(t.Context(), signin.Config{Issuer: env.Issuer, ClientID: env.ClientID, BaseURL: env.BaseURL})
 		if err != nil {
 			t.Fatal(err)
@@ -47,4 +47,16 @@ func TestTheKitPassesThePrincipalContractsFlowSuite(t *testing.T) {
 		go func() { _ = srv.Serve(l) }()
 		t.Cleanup(func() { _ = srv.Close() })
 	})
+}
+
+// identityImages is the identity release the suite runs, unless FLOWS_IDENTITY_IMAGE and
+// FLOWS_MIGRATION_IMAGE name others.
+func identityImages() flows.Images {
+	if images := flows.ImagesFromEnv(); images.Identity != "" {
+		return images
+	}
+	return flows.Images{
+		Identity:  "ghcr.io/jorisjonkers-dev/identity:v0.4.0",
+		Migration: "ghcr.io/jorisjonkers-dev/identity-migration:v0.4.0",
+	}
 }
