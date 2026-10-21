@@ -7,6 +7,7 @@ this one (JorisJonkers-dev/go-commons#1). Nothing here is speculative.
 | Package | What | Consumers |
 |---------|------|-----------|
 | [`identity`](identity) | who is calling, from identity's Principal contract: the Gate's signed header and JWT access tokens verified against the Issuer's keys, opaque tokens introspected, and the policy helpers `RequireRole`, `RefuseTools`, `RequireUser`, `RequireMachine` and `RequireRecentTwoFactor` | identity (JorisJonkers-dev/identity#109) |
+| [`identity/signin`](identity/signin) | the sign-in kit for a native app: the code flow with PKCE on go-oidc, a session holding the access token's Principal, back-channel logout, and `RequireRecentTwoFactor` asking identity for a fresh proof; held to identity's flow-conformance suite (`contract/flows`) | identity's flow-conformance suite |
 | [`secure`](secure) | the browser hardening headers: the three every service sends the same, and the content security policy, permissions policy and HSTS each service sets | estate-dashboard |
 | [`testlint`](testlint) | lints for the estate testing standards: a test named as a sentence, and a table of functions that runs each case as a named `t.Run`; run as `go tool testlint ./...` | identity |
 
