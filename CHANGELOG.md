@@ -1,5 +1,12 @@
 # Changelog
 
+## [0.3.1](https://github.com/JorisJonkers-dev/go-commons/compare/v0.3.0...v0.3.1) (2026-10-21)
+
+
+### Bug Fixes
+
+* go-commons asks for Go 1.26.4 again, with the contract at v1.1.1 ([#19](https://github.com/JorisJonkers-dev/go-commons/issues/19)) ([54f2fac](https://github.com/JorisJonkers-dev/go-commons/commit/54f2fac6c2cb05e5b5ecaff50036adcc4e1fd233))
+
 ## [0.3.0](https://github.com/JorisJonkers-dev/go-commons/compare/v0.2.2...v0.3.0) (2026-10-20)
 
 
