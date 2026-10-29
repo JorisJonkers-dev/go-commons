@@ -8,6 +8,8 @@ github.com/JorisJonkers-dev/identity/contract/flows v0.1.0 h1:DI7atffC5boxgKSrZm
 github.com/JorisJonkers-dev/identity/contract/flows v0.1.0/go.mod h1:gy4u1Pn7JEOiKZZQGuCnWI6hZOc9DTg2TxKWsfR3E0c=
 github.com/JorisJonkers-dev/identity/contract/principal v1.1.1 h1:k6oU/Y+f1GSc1xDhKESxpD2dqjXSVT8/SN3f/9h1p1E=
 github.com/JorisJonkers-dev/identity/contract/principal v1.1.1/go.mod h1:0SHKF5qroPPzolx/PtbnY+/Ywwwmi7rmxZKcWTzg5w0=
+github.com/JorisJonkers-dev/identity/contract/principal v1.2.0 h1:2lLxMrhozRD+i+2RpAcW998tlWsp++WIb1etQBpWG/4=
+github.com/JorisJonkers-dev/identity/contract/principal v1.2.0/go.mod h1:0SHKF5qroPPzolx/PtbnY+/Ywwwmi7rmxZKcWTzg5w0=
 github.com/Microsoft/go-winio v0.6.2 h1:F2VQgta7ecxGYO8k3ZZz3RS8fVIXVxONVUPlNERoyfY=
 github.com/Microsoft/go-winio v0.6.2/go.mod h1:yd8OoFMLzJbo9gZq8j5qaps8bJ9aShtEA8Ipt1oGCvU=
 github.com/boombuler/barcode v1.0.1-0.20190219062509-6c824513bacc h1:biVzkmvwrH8WK8raXaxBx6fRVTlJILwEwQGL1I/ByEI=
