@@ -1,5 +1,12 @@
 # Changelog
 
+## [0.4.1](https://github.com/JorisJonkers-dev/go-commons/compare/v0.4.0...v0.4.1) (2026-10-29)
+
+
+### Bug Fixes
+
+* **deps:** update module github.com/jorisjonkers-dev/identity/contract/principal to v1.2.0 ([#29](https://github.com/JorisJonkers-dev/go-commons/issues/29)) ([5bea9e2](https://github.com/JorisJonkers-dev/go-commons/commit/5bea9e29d0a4fd46cf4dd0a01c2d1f919c83a47e))
+
 ## [0.4.0](https://github.com/JorisJonkers-dev/go-commons/compare/v0.3.1...v0.4.0) (2026-10-21)
 
 
