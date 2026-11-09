@@ -27,8 +27,9 @@ jobs:
       # Go modules come through the estate's package proxy, which never serves a
       # version published less than 7 days ago (JorisJonkers-dev/workspace#167).
       # A pull request from a fork gets no secret, and then this step does nothing.
-      - uses: JorisJonkers-dev/github-workflows/actions/setup-package-proxy@623fb29dfc112e5176d1417c4b736f28095fac0b # v0.44.0
+      - uses: JorisJonkers-dev/github-workflows/actions/setup-package-proxy@8b5462a796f022647dfc44123ddb3655cc3c2f28 # v0.45.3
         with:
+          require-package-proxy: true
           token: ${{ secrets.PACKAGES_PROXY_TOKEN }}
 
       - uses: jdx/mise-action@6612f0ef07ed2a736cd1e00a94a065522dd41195 # v5.2.5
