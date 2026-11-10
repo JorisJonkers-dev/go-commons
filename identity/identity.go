@@ -162,7 +162,7 @@ func (r *Reader) Read(req *http.Request) (Principal, error) {
 
 // verified is the claims of a JWT of typ, signed by one of the Issuer's published keys.
 func (r *Reader) verified(ctx context.Context, token, typ string) (claims, error) {
-	jws, err := jose.ParseSigned(token, []jose.SignatureAlgorithm{jose.RS256})
+	jws, err := jose.ParseSignedCompact(token, []jose.SignatureAlgorithm{jose.RS256})
 	if err != nil {
 		return claims{}, &RefusalError{"bad-signature"}
 	}
