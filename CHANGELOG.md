@@ -1,5 +1,12 @@
 # Changelog
 
+## [0.4.2](https://github.com/JorisJonkers-dev/go-commons/compare/v0.4.1...v0.4.2) (2026-11-10)
+
+
+### Bug Fixes
+
+* **deps:** update module github.com/go-jose/go-jose/v4 to v4.1.7 ([#34](https://github.com/JorisJonkers-dev/go-commons/issues/34)) ([69cfb88](https://github.com/JorisJonkers-dev/go-commons/commit/69cfb883e506368927e1e4cdd89be7081ba85fa6))
+
 ## [0.4.1](https://github.com/JorisJonkers-dev/go-commons/compare/v0.4.0...v0.4.1) (2026-11-10)
 
 
