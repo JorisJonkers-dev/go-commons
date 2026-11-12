@@ -36,5 +36,15 @@ jobs:
         with:
           cache: true
 
+      # Go has no retry of its own; proxy-retry (put on PATH by the proxy step above) rides out a
+      # short proxy restart. A fork pull request gets no token, so it is not on PATH there.
+      - name: Download Go modules
+        run: |
+          if command -v proxy-retry >/dev/null; then
+            proxy-retry mise exec -- go mod download
+          else
+            mise exec -- go mod download
+          fi
+
       - name: Check
         run: mise exec -- task check
