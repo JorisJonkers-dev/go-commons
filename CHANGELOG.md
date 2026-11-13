@@ -1,5 +1,13 @@
 # Changelog
 
+## [0.4.3](https://github.com/JorisJonkers-dev/go-commons/compare/v0.4.2...v0.4.3) (2026-11-13)
+
+
+### Bug Fixes
+
+* **deps:** update module github.com/go-jose/go-jose/v4 to v4.1.9 ([#48](https://github.com/JorisJonkers-dev/go-commons/issues/48)) ([bd6ac4e](https://github.com/JorisJonkers-dev/go-commons/commit/bd6ac4e84324312579d039dcf316c0d3cb4cd261))
+* **hygiene:** never cancel a run of the required hygiene checks ([#46](https://github.com/JorisJonkers-dev/go-commons/issues/46)) ([1513fb3](https://github.com/JorisJonkers-dev/go-commons/commit/1513fb300da4897bf571991334511bf3d12c5a9a))
+
 ## [0.4.2](https://github.com/JorisJonkers-dev/go-commons/compare/v0.4.1...v0.4.2) (2026-11-10)
 
 
