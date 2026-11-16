@@ -7,7 +7,7 @@ require (
 	github.com/JorisJonkers-dev/identity/contract/principal v1.2.0
 	github.com/coreos/go-oidc/v3 v3.21.0
 	github.com/go-jose/go-jose/v4 v4.1.9
-	golang.org/x/oauth2 v0.37.0
+	golang.org/x/oauth2 v0.38.0
 	golang.org/x/tools v0.52.0
 )
 
