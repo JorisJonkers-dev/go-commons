@@ -1,5 +1,14 @@
 # Changelog
 
+## [0.4.4](https://github.com/JorisJonkers-dev/go-commons/compare/v0.4.3...v0.4.4) (2026-11-20)
+
+
+### Bug Fixes
+
+* **deps:** update minor and patch dependencies ([#54](https://github.com/JorisJonkers-dev/go-commons/issues/54)) ([3398377](https://github.com/JorisJonkers-dev/go-commons/commit/339837746d210ac08338a52ff1d70f3fb881c042))
+* **deps:** update module github.com/jorisjonkers-dev/identity/contract/flows to v0.1.2 ([#56](https://github.com/JorisJonkers-dev/go-commons/issues/56)) ([7cc83ad](https://github.com/JorisJonkers-dev/go-commons/commit/7cc83ad70aa55cc8320cb66a68ed065b30127ea1))
+* **deps:** update module golang.org/x/oauth2 to v0.38.0 ([#52](https://github.com/JorisJonkers-dev/go-commons/issues/52)) ([37b0d04](https://github.com/JorisJonkers-dev/go-commons/commit/37b0d04e01467cbc89545ec26532f604fd861ded))
+
 ## [0.4.3](https://github.com/JorisJonkers-dev/go-commons/compare/v0.4.2...v0.4.3) (2026-11-13)
 
 
